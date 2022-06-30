@@ -15,6 +15,8 @@ def user_info(fixture: harmonia_fixtures.payment_cards.TokenUserInfo) -> dict:
         "card_information": {
             "first_six": fixture.card_information.first_six,
             "last_four": fixture.card_information.last_four,
+            "expiry_year": fixture.card_information.expiry_year,
+            "expiry_month": fixture.card_information.expiry_month,
         },
     }
 
