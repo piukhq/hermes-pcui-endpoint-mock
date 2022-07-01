@@ -4,7 +4,7 @@ WORKDIR /app
 ADD . .
 
 RUN apt-get update && \
-    pip install --no-cache-dir pipenv==2018.11.26 gunicorn && \
+    pip install --no-cache-dir pipenv gunicorn && \
     pipenv install --system --deploy --ignore-pipfile && \
     pip uninstall -y pipenv && \
     apt-get clean && rm -rf /var/lib/apt/lists
