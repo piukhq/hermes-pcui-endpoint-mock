@@ -9,16 +9,17 @@ url = "https://269fdc63-af3d-4eca-8101-8bddc22d6f14:b694b5b1-f97e-49e4-959e-f3c2
 verify_ssl = true
 
 [dev-packages]
-werkzeug = "*"
-black = "==20.8b1"
 flake8 = "*"
 mypy = "*"
 xenon = "*"
+black = "*"
+isort = "*"
 
 [packages]
 falcon = "*"
 pycryptodome = "*"
 harmonia-fixtures = {version="*", index="pypi-cloud"}
+gunicorn = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.11"

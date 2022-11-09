@@ -1,13 +1,8 @@
-FROM ghcr.io/binkhq/python:3.10
+FROM ghcr.io/binkhq/python:3.11-pipenv
 
 WORKDIR /app
 ADD . .
 
-RUN apt-get update && \
-    pip install --no-cache-dir pipenv gunicorn && \
-    pipenv install --system --deploy --ignore-pipfile && \
-    pip uninstall -y pipenv && \
-    apt-get clean && rm -rf /var/lib/apt/lists
+RUN pipenv install --system --deploy --ignore-pipfile
 
-CMD [ "gunicorn", "--workers=2", "--threads=2", "--error-logfile=-", \
-                  "--access-logfile=-", "--bind=0.0.0.0:9000", "wsgi:application" ]
+CMD [ "gunicorn", "--error-logfile=-", "--access-logfile=-", "--bind=0.0.0.0:9000", "wsgi:application" ]
